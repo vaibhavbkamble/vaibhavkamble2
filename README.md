@@ -18,16 +18,13 @@ public class ReplaceWithRank {
         int[] outputArr = replaceWithRank(inputArr);
         System.out.println(Arrays.toString(outputArr));
     }
-
     public static int[] replaceWithRank(int[] arr) {
         int[] sortedArr = arr.clone();
         Arrays.sort(sortedArr);
-
         Map<Integer, Integer> rankMap = new HashMap<>();
         for (int i = 0; i < sortedArr.length; i++) {
             rankMap.put(sortedArr[i], i + 1);
         }
-
         int[] result = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
             result[i] = rankMap.get(arr[i]);
@@ -68,12 +65,10 @@ public class LongestSubstringWithoutRepeatingChars {
         int outputLength = lengthOfLongestSubstring(inputStr);
         System.out.println(outputLength);
     }
-
     public static int lengthOfLongestSubstring(String s) {
         Map<Character, Integer> charIndex = new HashMap<>();
         int maxLength = 0;
         int start = 0;
-
         for (int end = 0; end < s.length(); end++) {
             char currentChar = s.charAt(end);
             if (charIndex.containsKey(currentChar)) {
@@ -82,7 +77,6 @@ public class LongestSubstringWithoutRepeatingChars {
             charIndex.put(currentChar, end);
             maxLength = Math.max(maxLength, end - start + 1);
         }
-
         return maxLength;
     }
 }
@@ -97,11 +91,9 @@ public class NonRepeatingCharacters {
         Set<Character> nonRepeatingChars = findNonRepeatingCharacters(inputStr);
         System.out.println(nonRepeatingChars);
     }
-
     public static Set<Character> findNonRepeatingCharacters(String s) {
         Set<Character> charSet = new HashSet<>();
         Set<Character> nonRepeatingChars = new HashSet<>();
-
         for (char c : s.toCharArray()) {
             if (charSet.contains(c)) {
                 nonRepeatingChars.remove(c);
@@ -110,7 +102,6 @@ public class NonRepeatingCharacters {
                 nonRepeatingChars.add(c);
             }
         }
-
         return nonRepeatingChars;
     }
 }
@@ -138,11 +129,9 @@ public class ElementFrequency {
     public static void main(String[] args) {
         int[] numbers = {1, 2, 2, 3, 3, 3, 4, 4, 4, 4};
         Map<Integer, Integer> frequencyMap = new HashMap<>();
-
         for (int num : numbers) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }
-
         for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
             System.out.println("Element: " + entry.getKey() + ", Frequency: " + entry.getValue());
         }
