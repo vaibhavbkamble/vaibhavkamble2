@@ -1,4 +1,4 @@
-# vaibhavkamble2
+# DotNetTest
 
 Q1: Replace each array element by its corresponding rank
   Given an array of distinct integers, replace each array element by its corresponding rank in the array.
